@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private static final int MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 1;
     private Button mChooseBtn = null;
+    private Button mTestHttpBtn = null;
     private Button mSettingBtn = null;
 
     @Override
@@ -35,7 +36,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
                 // TODO: show explanation
-            } else {
+            }
+            else {
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE);
             }
         }
@@ -47,7 +49,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE: {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     // permission was granted, yay! Do the task you need to do.
-                } else {
+                }
+                else {
                     // permission denied, boo! Disable the functionality that depends on this permission.
                 }
             }
@@ -57,6 +60,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void findViews() {
         mChooseBtn = (Button) findViewById(R.id.start_choose_btn);
         mChooseBtn.setOnClickListener(this);
+        mTestHttpBtn = (Button) findViewById(R.id.start_test_http_btn);
+        mTestHttpBtn.setOnClickListener(this);
         mSettingBtn = (Button) findViewById(R.id.setting_btn);
         mSettingBtn.setOnClickListener(this);
     }
@@ -67,6 +72,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.start_choose_btn:
                 chooseBtnOnClick();
                 break;
+            case R.id.start_test_http_btn:
+                testHttpBtnOnClick();
+                break;
             case R.id.setting_btn:
                 settingBtnOnClick();
                 break;
@@ -75,6 +83,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void chooseBtnOnClick() {
         Intent intent = new Intent(MainActivity.this, ChooseActivity.class);
+        MainActivity.this.startActivity(intent);
+    }
+
+    /**
+     * 测试Http流播放
+     */
+    private void testHttpBtnOnClick() {
+        Intent intent = new Intent(MainActivity.this, VideoPlayActivity.class);
+        intent.putExtra("video_path", "http://xg-miss.oss-cn-hangzhou.aliyuncs.com/videos/1480655176441AE73477A6CB0C2C5ECDE7CB50FCA11.mp4");
         MainActivity.this.startActivity(intent);
     }
 

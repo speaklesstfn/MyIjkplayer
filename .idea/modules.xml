@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MyIjkPlayer.iml" filepath="$PROJECT_DIR$/MyIjkPlayer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MyIjkplayer.iml" filepath="$PROJECT_DIR$/MyIjkplayer.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/ijkplayer-java/ijkplayer-java.iml" filepath="$PROJECT_DIR$/ijkplayer-java/ijkplayer-java.iml" />
     </modules>
